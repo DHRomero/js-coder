@@ -16,7 +16,7 @@ function detalleCarrito () {
                     <td>${producto.nombre}</td>
                     <td>${producto.cepa}</td>
                     <td><span class= "text-danger">$${producto.Precio} ARS</span></td>
-                    <td class= "text-end"><button class= "btn btn-danger" onclick= "eliminarProducto(${producto.id});">Eliminar Producto</button></td>
+                    <td class= "text-end"><button type= "button" id= "btnEliminar" class= "btn btn-danger" onclick= "eliminarProducto(${producto.id});">Eliminar Producto</button></td>
                     </tr>`
         }
             contenidoHtml += `</tbody>
@@ -28,8 +28,28 @@ function detalleCarrito () {
     }    
     
     document.getElementById("contenido").innerHTML= contenidoHtml
-    
+    document.getElementById("btnEliminar").addEventListener("click", eliminarCarrito);
 }
+
+const contenedorTotal = document.getElementById("precioTotal");
+
+
+function eliminarCarrito(){
+    Toastify({
+        text: "El producto se elimino correctamente",
+        className: "info",
+        style: {
+            color: "white",
+          background: "linear-gradient(to right, blue, yellow)",
+        }
+      }).showToast();
+    }
+
+
+contenedorTotal.innerHTML=`<div class="">
+            <div class="border p-2 ">
+              <p class= "row justify-content-end">Total a pagar: </p>
+            </div>`;
 
 detalleCarrito();
 botonCarrito();

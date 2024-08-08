@@ -13,14 +13,25 @@ function contenidoProductos () {
                 <p class="card-text fw-medium">${producto.cepa}</p>
                 <p class="card-text fw-medium">${producto.Bodega}</p>
                 <p class="card-text fw-medium text-danger">$${producto.Precio} ARS</p>
-                <p class="card-text"><button class="btn btn-primary rounded-pill" onclick="agregarProducto(${producto.id});">Agregar al Carrito</button></p>
+                <p class="card-text"><button type= "button" id="btnAgregar" class="btn btn-primary rounded-pill" onclick="agregarProducto(${producto.id});">Agregar al Carrito</button></p>
                 </div>
                 </div>
                 </div>`
     }
     document.getElementById("contenido").innerHTML= contenidoHtml
-    
+    document.getElementById("btnAgregar").addEventListener("click", toastAdded);
 }
+
+function toastAdded(){
+    Toastify({
+        text: "El producto se agrego correctamente",
+        className: "info",
+        style: {
+            color: "white",
+          background: "linear-gradient(to right, blue, yellow)",
+        }
+      }).showToast();
+    }
 
 contenidoProductos();
 botonCarrito();

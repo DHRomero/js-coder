@@ -31,15 +31,19 @@ function eliminarProducto(id){
 }
 
 
+
 function botonCarrito(){
     let total= totalProductos();
     document.getElementById("totalCarrito").innerHTML= total
 }
+
 function totalProductos() {
     const carrito = sumarCarrito();
      return carrito.length;
 
 }
+
+
 
 function sumarCarrito(){
     return JSON.parse(localStorage.getItem("carrito")) || [];
