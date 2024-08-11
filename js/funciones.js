@@ -37,6 +37,7 @@ function botonCarrito(){
     document.getElementById("totalCarrito").innerHTML= total
 }
 
+
 function totalProductos() {
     const carrito = sumarCarrito();
      return carrito.length;
